@@ -52,7 +52,7 @@ def work_with_phonebook():
         choice = show_menu()
 
 def show_menu():
-    print(" == Телефонный справочник v1.0 ==\n"
+    print("\n == Телефонный справочник v1.0 ==\n"
           "  Выберите необходимое действие:\n"
           "1. Отобразить весь справочник\n"
           "2. Найти абонента по фамилии\n"
@@ -96,7 +96,7 @@ def print_result(phone_book):
 
 def find_by_lastname(phone_book, last_name):
     for i in range(len(phone_book)):
-        record = str(phone_book[i]['Фамилия'])
+        # record = str(phone_book[i]['Фамилия'])
         record = str(phone_book[i].get('Фамилия', 'Нет фамилии'))
         if str(last_name).lower() in record.lower():
             s = ''
@@ -133,7 +133,7 @@ def change_number(phone_book, last_name, new_number):
         if str(last_name).lower() in record.lower():
             phone_book[i]['Телефон'] = new_number
             print('Номер абонента с фамилией ' + last_name + ' изменен')
-        return phone_book
+            return phone_book
     print('Абонент с фамилией ' + last_name + ' отсутствует')
     return phone_book
 
@@ -143,7 +143,7 @@ def delete_by_lastname(phone_book, last_name):
         if str(last_name).lower() in record.lower():
             phone_book = phone_book.pop(i)
             print('Запись об абоненте с фамилией ' + last_name + ' удалена')
-        return phone_book
+            return phone_book
     print('Абонент с фамилией ' + last_name + ' отсутствует')
     return phone_book
 
